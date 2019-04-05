@@ -1,7 +1,6 @@
 package model;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class LineChart extends BasicChart {
 	private double[] xValues;
@@ -49,5 +48,20 @@ public class LineChart extends BasicChart {
 
 	public void setyValues(double[] yValues) {
 		this.yValues = yValues;
+	}
+
+	public void addValue(double x, double y){
+		if(xValues == null) {
+			xValues = new double[1];
+		}else{
+			xValues  = Arrays.copyOf(xValues,xValues.length+1);
+		}
+		if(yValues == null) {
+			yValues = new double[1];
+		}else{
+			yValues  = Arrays.copyOf(yValues,yValues.length+1);
+		}
+		xValues[xValues.length-1] = x;
+		yValues[yValues.length-1] = y;
 	}
 }
